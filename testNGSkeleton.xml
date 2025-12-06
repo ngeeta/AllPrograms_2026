@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!-- Root suite -->
+<suite name="AutomationSuite" verbose="1" parallel="tests" thread-count="2">
+
+    <!-- Global parameters -->
+    <parameter name="browser" value="chrome"/>
+    <parameter name="baseUrl" value="https://rahulshettyacademy.com/AutomationPractice/"/>
+
+    <!-- Listeners -->
+    <listeners>
+        <listener class-name="com.framework.listeners.CustomListener"/>
+        <listener class-name="com.framework.listeners.RetryListener"/>
+        <listener class-name="com.framework.listeners.ExtentReportListener"/>
+    </listeners>
+
+    <!-- Test block -->
+    <test name="UI Tests" parallel="classes" thread-count="2">
+        <parameter name="env" value="QA"/>
+
+        <!-- Groups -->
+        <groups>
+            <run>
+                <include name="smoke"/>
+                <exclude name="broken"/>
+            </run>
+        </groups>
+
+        <!-- Classes -->
+        <classes>
+            <class name="com.framework.tests.LoginTest">
+                <methods>
+                    <include name="testValidLogin"/>
+                    <exclude name="testInvalidLogin"/>
+                </methods>
+            </class>
+
+            <class name="com.framework.tests.HomePageTest"/>
+            <class name="com.framework.tests.DropdownTest"/>
+        </classes>
+    </test>
+
+    <test name="API Tests">
+        <classes>
+            <class name="com.framework.api.UserApiTest"/>
+            <class name="com.framework.api.ProductApiTest"/>
+        </classes>
+    </test>
+
+    <!-- Parallel execution at method level -->
+    <test name="ParallelMethodTests" parallel="methods" thread-count="3">
+        <classes>
+            <class name="com.framework.tests.ParallelExecutionTest"/>
+        </classes>
+    </test>
+
+</suite>
