@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BrokenLinks {
-   // @Test
+    @Test
     public void getallbrokenLink() throws IOException {
         WebDriver driver = new ChromeDriver();
         driver.get("http://www.deadlinkcity.com/");

@@ -44,5 +44,20 @@ public class AuthenticationPopUp {
 	robot.keyRelease(KeyEvent.VK_ENTER);
 	
 	}
+	private static void typeText(Robot robot, String text) throws InterruptedException {
+	    for (char c : text.toCharArray()) {
+	        // Convert to uppercase because VK_A..VK_Z are uppercase constants
+	        char upperChar = Character.toUpperCase(c);
+	        int keyCode = KeyEvent.getExtendedKeyCodeForChar(upperChar);
+
+	        if (KeyEvent.VK_UNDEFINED == keyCode) {
+	            throw new IllegalArgumentException("Cannot type character: " + c);
+	        }
+
+	        robot.keyPress(keyCode);
+	        robot.keyRelease(keyCode);
+	        Thread.sleep(200); // small delay
+	    }
+	}
 
 }

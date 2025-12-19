@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="javaProgram.ValidateUsingJsonNode">
+      <class name="selenium.BrokenImage">
         <methods>
-          <include name="empJsonPrint"/>
+          <include name="brokenImage"/>
+          <include name="brokenLink"/>
         </methods>
-      </class> <!-- javaProgram.ValidateUsingJsonNode -->
+      </class> <!-- selenium.BrokenImage -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
