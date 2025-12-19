@@ -13,8 +13,8 @@ public class ConfigReader {
 	static {
 
 		try {
-			// FileInputStream fs=new FileInputStream("Configuration/endpoint.properties");
-			FileInputStream fs = new FileInputStream("Configuration/selenium.properties");
+			 FileInputStream fs=new FileInputStream("Configuration/endpoint.properties");
+			//FileInputStream fs = new FileInputStream("Configuration/selenium.properties");
 			prop.load(fs);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

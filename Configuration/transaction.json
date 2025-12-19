@@ -1,0 +1,54 @@
+{
+    "account": {
+        "accountId": "123456789",
+        "accountType": "SAVINGS",
+        "currency": "AUD",
+        "status": "ACTIVE",
+        "customer": {
+            "customerId": "CUST001",
+            "name": {
+                "firstName": "John",
+                "lastName": "Doe"
+            }
+        }
+    },
+    "balances": [
+        {
+            "id": 1,
+            "availableBalance": 1500.75,
+            "ledgerBalance": 1520,
+            "overdraftLimit": 500,
+            "lastUpdated": "2025-12-02T10:15:00Z"
+        },
+        {
+            "id": 2,
+            "availableBalance": 1500.75,
+            "ledgerBalance": 1520,
+            "overdraftLimit": 500,
+            "lastUpdated": "2025-12-02T10:15:00Z"
+        }
+    ],
+    "transactions": [
+        {
+            "transactionId": "TXN001",
+            "date": "2025-12-01",
+            "description": "ATM Withdrawal",
+            "amount": -100,
+            "currency": "AUD",
+            "balanceAfter": 1500.75
+        },
+        {
+            "transactionId": "TXN002",
+            "date": "2025-11-30",
+            "description": "Salary Credit",
+            "amount": 2000,
+            "currency": "AUD",
+            "balanceAfter": 1600.75
+        }
+    ],
+    "metadata": {
+        "requestId": "abc123xyz",
+        "timestamp": "2025-12-02T10:16:00Z",
+        "sourceSystem": "CoreBanking"
+    }
+}

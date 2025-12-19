@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="javaProgram.Iframes$TableProgram">
+      <class name="javaProgram.ValidateUsingJsonNode">
         <methods>
-          <include name="dynamic"/>
+          <include name="empJsonPrint"/>
         </methods>
-      </class> <!-- javaProgram.Iframes$TableProgram -->
+      </class> <!-- javaProgram.ValidateUsingJsonNode -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

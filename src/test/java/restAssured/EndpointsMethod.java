@@ -11,7 +11,7 @@ public class EndpointsMethod extends RABaseClass {
         RestAssured.baseURI = conf.get("baseURL");   // https://reqres.in/
         RestAssured.basePath = conf.get("listUser"); // api/users?page=2
 
-		req=RestAssured.given().header("x-api-key","reqres-free-v1").queryParam("page", 2);
+		req=RestAssured.given().header("x-api-key","reqres_cf26b5890d5b4c6aa4fcab42d11df135").queryParam("page", 2);
 		//res=req.when().get("https://reqres.in/api/users?page=2");
 		//res=req.when().get(conf.get("listUser"));
 		res=req.when().get();
@@ -23,7 +23,7 @@ public class EndpointsMethod extends RABaseClass {
 		 RestAssured.baseURI = conf.get("baseURL");   // https://reqres.in/
 	        RestAssured.basePath = conf.get("listSingleUser"); // api/users/2
 
-	        req=RestAssured.given().header("x-api-key","reqres-free-v1");
+	        req=RestAssured.given().header("x-api-key","reqres_cf26b5890d5b4c6aa4fcab42d11df135");
 	        res=req.when().get();
 			System.out.println("getSingleUser : "+res.asString());
 
@@ -33,7 +33,7 @@ public class EndpointsMethod extends RABaseClass {
 	public Response postUser() {
 		
 
-	        req=RestAssured.given().header("x-api-key","reqres-free-v1")
+	        req=RestAssured.given().header("x-api-key","reqres_cf26b5890d5b4c6aa4fcab42d11df135")
 	        					   .contentType("application/json")
 	        					   .body(conf.get("body"))
 	        					   .baseUri(conf.get("baseURL"))
@@ -43,6 +43,17 @@ public class EndpointsMethod extends RABaseClass {
 			
 	        return res;
 	}
+	
+	public Response getCookiesFromGoogle() {
+		
+
+        req=RestAssured.given().baseUri("https://www.google.com/");
+        					  // .basePath(conf.get("postUser"));
+        res=req.when().get();
+		System.out.println("postUser : "+res.asString());
+		
+        return res;
+}
 }
 
 

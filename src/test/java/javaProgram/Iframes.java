@@ -1,6 +1,5 @@
 package javaProgram;
 
-import java.lang.classfile.attribute.ModuleTargetAttribute;
 import java.util.List;
 
 import org.openqa.selenium.By;

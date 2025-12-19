@@ -28,6 +28,11 @@ System.out.println(map);
 		String a[]= {"A","B","A","C","C"};
 List<String> names=new ArrayList<String>(Arrays.asList(a));
 List<String> unq=new ArrayList<String>();
+for(String s:names){
+    if(!unq.contains(s)){
+        unq.add(s);
+    }
+    /*
 Iterator<String> itr=names.iterator();
 while(itr.hasNext()) {
 String word=itr.next();
@@ -36,9 +41,12 @@ if(unq.contains(word)) {
 }
 else {
 	unq.add(word);
-}
+}*/
 }
 System.out.println(unq);
+
+
+
 	}
 	@Test
 	public void findDupString() {

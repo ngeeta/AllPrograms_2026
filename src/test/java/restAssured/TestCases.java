@@ -1,8 +1,14 @@
 package restAssured;
 
+import java.io.File;
+import java.util.Map;
+
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -17,6 +23,18 @@ public class TestCases extends RABaseClass {
 	public void TC_getListOfUsers() {
 		res = ep.getListOfUser();
 		Assert.assertEquals(res.getStatusCode(), 200);
+		extentTest.info("Status code is " + res.getStatusCode());
+	}
+	@Test
+	public void TC_getCookiesFromGoogle() {
+		res = ep.getCookiesFromGoogle();
+		Map<String, String> cookies=res.getCookies();
+		System.out.println(cookies);
+		
+		for(Map.Entry<String, String> entry:cookies.entrySet()) {
+			System.out.println(entry.getKey()+" -> "+entry.getValue());
+		}
+		//Assert.assertEquals(res.getStatusCode(), 200);
 		extentTest.info("Status code is " + res.getStatusCode());
 	}
 
@@ -48,10 +66,13 @@ public class TestCases extends RABaseClass {
 		Assert.assertEquals(job, "QA Manager", "Check for presence of QA Manager");
 		extentTest.pass("Validated 'job' field: " + job);
 
-		// Geeta in body with any path
+				// Geeta in body with any path
 		boolean containsData = res.getBody().asString().contains("Geeta");
 		Assert.assertEquals(containsData, true, "Check for presence of Geeta");
 		extentTest.pass("Response body contains 'Geeta'");
+		
+		//Schema validator
+		res.then().assertThat().body(matchesJsonSchema(new File("D:\\Edrive\\Study\\Geeta_Workspace\\com.PracticeAllProgram\\Configuration\\reqresPostSchema.json")));
 
 	}
 }
